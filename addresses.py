@@ -32,11 +32,15 @@ LIBC_TEXT_START = 0xb7b270f0
 
 # Memory address of the `auth` variable in the sudo program.
 # USE THIS IN `q3.py`.
-AUTH = 0x12345678
+AUTH = 0x804a054
+
+# origin return address from function to make a continues of the flow.
+# USE THIS IN `q3.py`.
+ORIGIN_RET_ADDR = 0x80488b0
 
 ########### QUESTION 4 ##############
 
 # Memory address of the `puts` function. You can find the address of this
 # function either in the PLT or in libc.
 # USE THIS IN `q4.py`.
-PUTS = 0x12345678
+PUTS = 0xb7b7a460
