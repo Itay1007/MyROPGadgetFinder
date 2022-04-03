@@ -208,3 +208,4 @@ class GadgetSearch(object):
         except StopIteration:
             raise ValueError(
                 "Couldn't find matching address for " + gadget_format)
+            
